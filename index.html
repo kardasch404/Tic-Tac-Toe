@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="./src/css/card.css">
+    <link rel="stylesheet" href="./src/css/button.css">
+    <link rel="stylesheet" href="./src/css/board.css">
+
+    <title>Tic-Tac-Toe</title>
+</head>
+
+<body>
+    <div>
+        <H4>Choose number of cases</H4>
+        <input type="number" id="numberOfCard" value="3">
+        <H4>Choose your symbol</H4>
+        <select name="player1" id="player1">
+            <option value="X">X</option>
+            <option value="O">O</option>
+        </select>
+        <button onclick="createBoard(); play()">Create Card</button>
+    </div>
+    <div class="board" id="board">
+
+    </div>
+
+    <script src="./src/js/board.js"></script>
+    <script src="./src/js/checkWinner.js" type="module"></script>
+    <script src="./src/js/play.js"></script>
+</body>
+
+</html>

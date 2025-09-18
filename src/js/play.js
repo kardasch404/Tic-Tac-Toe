@@ -11,8 +11,12 @@ function play() {
             if (card.innerText === ""){
                 card.innerText = currentPlayer;
                 card.style.color = currentPlayer === players[0] ? 'red' : 'blue';
+                
+  
+                if (checkWinner(currentPlayer)) {
+                    return; 
+                }
                 currentPlayer = currentPlayer === players[0] ? players[1] : players[0]; 
-                console.log(currentPlayer);  
             }
         })
     })
@@ -21,3 +25,4 @@ function play() {
   }
 }
 play();
+  

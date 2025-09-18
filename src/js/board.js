@@ -11,10 +11,13 @@ function createBoard() {
   board.innerHTML = "";
   
   let sumOfNumber = number * number;
+  let id = 0 ; 
   for (let i = 0; i < sumOfNumber; i++) {
     const card = document.createElement("div");
     card.classList.add("card");
     card.innerText = "";
+    card.id = id ; 
+    id++ ;
     board.appendChild(card);
   }
 

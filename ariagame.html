@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="./src/css/card.css">
+    <link rel="stylesheet" href="./src/css/button.css">
+    <link rel="stylesheet" href="./src/css/board.css">
+    <title>ARIA</title>
+</head>
+
+<body>
+
+    <div class="container"> 
+
+    <div class="player1">
+        <h2>Player 1</h2>
+        <div id="player1">
+
+        </div>
+    </div>
+    
+    <div class="board" id="board">
+
+    </div>
+
+    <div class="player2">
+        <h2>Player 2</h2>
+        <div id="player2">
+
+        </div>
+    </div>
+
+    <div>
+        <button onclick = "RestartGame()">Restart Game</button>
+    </div>
+    </div>  
+    <script src="./src/js/createBoard.js" type="module"></script>
+    <script src="./src/js/checkWinner.js" type="module"></script>
+    <script src="./src/js/loadingBord.js" type="module"></script>
+    <script src="./src/js/play.js" type="module"></script>
+    <script src="./src/js/RestartGame.js" type="module"></script>
+</body>
+
+</html>

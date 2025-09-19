@@ -1,8 +1,11 @@
 import { checkDraw } from "./checkDraw.js";
+import { checkWinner } from "./checkWinner.js";
 
-function play() {
+export function play() {
   try {
-    const player1Symbol = document.getElementById("player1").value;
+
+    const aria = JSON.parse(localStorage.getItem("aria"));
+    const player1Symbol = aria.player1Symbol;
     const player2Symbol = player1Symbol === "X" ? "O" : "X";
     const players = [player1Symbol, player2Symbol];
     const cards = document.querySelectorAll(".card");
@@ -17,6 +20,7 @@ function play() {
   
                 if (checkWinner(currentPlayer)) {
                     return; 
+                    
                 }
                 
                 if (checkDraw(currentPlayer)) {

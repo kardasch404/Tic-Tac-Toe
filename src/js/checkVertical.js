@@ -1,6 +1,7 @@
 export function checkVertical(player) {
-  const numberOfCard = parseInt(document.getElementById("numberOfCard").value);
-  const numberOfWin = parseInt(document.getElementById("numberOfWin").value);
+  const gameConfig = JSON.parse(localStorage.getItem('aria'));
+    const numberOfCard = gameConfig.numberOfCard;
+    const numberOfWin = gameConfig.numberOfWin;
 
   for (let col = 0; col < numberOfCard; col++) {
     for (let startRow = 0; startRow <= numberOfCard - numberOfWin; startRow++) {

@@ -1,6 +1,7 @@
 export function checkMainDiagonal(player) {
-  const numberOfCard = parseInt(document.getElementById("numberOfCard").value);
-  const numberOfWin = parseInt(document.getElementById("numberOfWin").value);
+  const gameConfig = JSON.parse(localStorage.getItem('aria'));
+  const numberOfCard = gameConfig.numberOfCard;
+  const numberOfWin = gameConfig.numberOfWin;
 
   for (let startRow = 0; startRow <= numberOfCard - numberOfWin; startRow++) {
     for (let startCol = 0; startCol <= numberOfCard - numberOfWin; startCol++) {

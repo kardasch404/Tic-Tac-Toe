@@ -1,6 +1,7 @@
 export function checkHorizontal(player) {
-  const numberOfCard = parseInt(document.getElementById("numberOfCard").value);
-  const numberOfWin = parseInt(document.getElementById("numberOfWin").value);
+  const gameConfig = JSON.parse(localStorage.getItem('aria'));
+    const numberOfCard = gameConfig.numberOfCard;
+    const numberOfWin = gameConfig.numberOfWin;
 
 
   for (let row = 0; row < numberOfCard; row++) {

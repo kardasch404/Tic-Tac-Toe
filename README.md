@@ -2,9 +2,9 @@
 
 Un jeu Tic-Tac-Toe moderne et configurable développé avec JavaScript, HTML et CSS natifs.
 
-🎮 **Démo en ligne**: [tic-tac-toe-fawn-three-98.vercel.app](https://tic-tac-toe-fawn-three-98.vercel.app)
+**Démo en ligne**: [ARIA GAME](https://tic-tac-toe-fawn-three-98.vercel.app)
 
-## 🎯 Fonctionnalités
+## Fonctionnalités
 
 - **Grille dynamique**: Configurez la taille de la grille (3x3, 4x4, 5x5, etc.)
 - **Conditions de victoire personnalisables**: Définissez le nombre de cases alignées pour gagner
@@ -12,44 +12,44 @@ Un jeu Tic-Tac-Toe moderne et configurable développé avec JavaScript, HTML et 
 - **Architecture modulaire**: Code JavaScript organisé en modules ES6
 - **Sauvegarde locale**: Configuration et scores sauvegardés dans localStorage
 
-## 🏗️ Structure du Projet
+## Structure du Projet
 
 ```
 ARIA-GAME/
 ├── src/
 │   ├── css/
-│   │   ├── style.css          # Styles principaux et interface
-│   │   ├── board.css          # Styles du plateau de jeu
-│   │   ├── card.css           # Styles des cases
-│   │   ├── button.css         # Styles des boutons
-│   │   └── player-card.css    # Styles des cartes joueurs
+│   │   ├── style.css          
+│   │   ├── board.css          
+│   │   ├── card.css           
+│   │   ├── button.css         
+│   │   └── player-card.css    
 │   └── js/
-│       ├── validation.js      # Validation et configuration
-│       ├── loadingBord.js     # Chargement du plateau
-│       ├── createBoard.js     # Création dynamique du plateau
-│       ├── play.js            # Logique de jeu
-│       ├── checkWinner.js     # Module principal de vérification
-│       ├── checkHorizontal.js # Vérification horizontale
-│       ├── checkVertical.js   # Vérification verticale
-│       ├── checkMainDiagonal.js # Vérification diagonale principale
-│       ├── checkAntiDiagonal.js # Vérification diagonale inverse
-│       ├── checkDraw.js       # Vérification match nul
-│       ├── switchTurn.js      # Alternance des tours
-│       ├── score.js           # Gestion des scores
-│       └── RestartGame.js     # Redémarrage du jeu
-├── index.html                 # Page de configuration
-├── ariagame.html             # Page de jeu
+│       ├── validation.js      
+│       ├── loadingBord.js     
+│       ├── createBoard.js     
+│       ├── play.js            
+│       ├── checkWinner.js     
+│       ├── checkHorizontal.js 
+│       ├── checkVertical.js   
+│       ├── checkMainDiagonal.js 
+│       ├── checkAntiDiagonal.js 
+│       ├── checkDraw.js       
+│       ├── switchTurn.js      
+│       ├── score.js           
+│       └── RestartGame.js     
+├── index.html                 
+├── ariagame.html             
 └── README.md
 ```
 
-## 🎮 Comment Jouer
+## Comment Jouer
 
 1. **Configuration**: Choisissez la taille de la grille et le nombre de cases à aligner
 2. **Symbole**: Sélectionnez votre symbole (X ou O)
 3. **Jeu**: Cliquez sur les cases pour placer votre symbole
 4. **Victoire**: Alignez le nombre requis de symboles horizontalement, verticalement ou en diagonale
 
-## 🧮 Algorithme de Victoire
+## Algorithme de Victoire
 
 Le système utilise un algorithme de scoring unique:
 
@@ -102,23 +102,23 @@ if (sum === numberOfWin) {
 }
 ```
 
-## 💾 Gestion des Données
+## Gestion des Données
 
 ### Configuration Locale
 ```javascript
 const gameConfig = {
-    numberOfCard: 4,        // Taille de la grille
-    numberOfWin: 4,         // Cases à aligner pour gagner
-    player1Symbol: "X"      // Symbole du joueur
+    numberOfCard: 4,        
+    numberOfWin: 4,         
+    player1Symbol: "X"      
 };
 localStorage.setItem('aria', JSON.stringify(gameConfig));
 ```
 
 ### Fonctions de Score
-- `updateScore()`: Met à jour les scores dans localStorage
-- `loadScores()`: Charge les scores sauvegardés
+- `updateScore()`: 
+- `loadScores()`: 
 
-## 🔧 Fonctions Principales
+## Fonctions Principales
 
 ### `validateAndCreateBoard()`
 Valide la configuration et lance le jeu:
@@ -143,33 +143,20 @@ export function checkWinner(player) {
 ### `switchTurn()`
 Alterne entre les joueurs X et O
 
-## 🎨 Design
 
-- **Couleurs principales**:
-  - Fond: `#000080` (Bleu marine)
-  - Container: `#6a1b9a` (Violet mystique)
-  - "ARIA": `#ffc107` (Jaune)
-  - "GAME": `#f8f9fa` (Blanc)
-  - Succès: `#28a745` (Vert)
-
-- **Responsive**: Adaptation automatique mobile/desktop
-- **Animations**: Transitions fluides et effets hover
-
-## 🚀 Installation
+## Installation
 
 1. Clonez le repository
+```bash
+git clone https://github.com/kardasch404/Tic-Tac-Toe.git
+```
 2. Ouvrez `index.html` dans votre navigateur
-3. Ou déployez sur Vercel/Netlify
 
-## 🛠️ Technologies
 
-- **HTML5**: Structure sémantique
-- **CSS3**: Gradients, Grid Layout, Flexbox
-- **JavaScript ES6**: Modules, LocalStorage, DOM API
-- **Architecture modulaire**: Séparation des responsabilités
+## Technologies
 
-## 📱 Compatibilité
+- **HTML5** 
+- **CSS3** 
+- **JavaScript ES6**: Modules, LocalStorage
+- **Architecture modulaire**
 
-- ✅ Chrome, Firefox, Safari, Edge
-- ✅ Responsive mobile et desktop
-- ✅ Pas de dépendances externes

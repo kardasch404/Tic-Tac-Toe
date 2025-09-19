@@ -16,18 +16,21 @@
     <div>
         <H4>Choose number of cases</H4>
         <input type="number" id="numberOfCard" value="3">
+        <h4>Entre number Of cases Win</h4>
+        <input type="number" id="numberOfWin" value="3">
         <H4>Choose your symbol</H4>
         <select name="player1" id="player1">
             <option value="X">X</option>
             <option value="O">O</option>
         </select>
-        <button onclick="createBoard(); play()">Create Card</button>
+        <button onclick="validateAndCreateBoard();">Create Card</button>
     </div>
     <div class="board" id="board">
 
     </div>
 
     <script src="./src/js/board.js"></script>
+    <script src="./src/js/validation.js"></script>
     <script src="./src/js/checkWinner.js" type="module"></script>
     <script src="./src/js/play.js"></script>
 </body>

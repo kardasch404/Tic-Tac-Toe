@@ -4,11 +4,12 @@ import { checkMainDiagonal } from "./checkMainDiagonal.js";
 import { checkAntiDiagonal } from "./checkAntiDiagonal.js";
 import { checkDraw } from "./checkDraw.js";
 
-function checkWinner(player) {
+    export function checkWinner(player) {
     return checkHorizontal(player) ||
     checkVertical(player) || 
     checkMainDiagonal(player) ||
-    checkAntiDiagonal(player);
+    checkAntiDiagonal(player) ||
+    checkDraw(player);
     
 }
 

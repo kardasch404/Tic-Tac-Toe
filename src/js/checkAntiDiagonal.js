@@ -1,27 +1,33 @@
 export function checkAntiDiagonal(player) {
-    const numberOfCard = parseInt(document.getElementById("numberOfCard").value);
-    let sum = 0;
-  
-    for (let i = 0; i < numberOfCard; i++) {
-      const cardId = i * numberOfCard + (numberOfCard - 1 - i);
-      const card = document.getElementById(cardId.toString());
-      
-      if (card) {
-        const cardValue = card.innerText;
-        if (cardValue === player) {
-          sum += 1;
-        } else if (cardValue === "" || cardValue === null) {
-          sum += -1;
-        } else {
-          sum += 0;
+    const gameConfig = JSON.parse(localStorage.getItem('aria'));
+    const numberOfCard = gameConfig.numberOfCard;
+    const numberOfWin = gameConfig.numberOfWin;
+
+    for (let startRow = 0; startRow <= numberOfCard - numberOfWin; startRow++) {
+      for (let startCol = numberOfWin - 1; startCol < numberOfCard; startCol++) {
+        let sum = 0;
+
+        for (let i = 0; i < numberOfWin; i++) {
+          const cardId = (startRow + i) * numberOfCard + (startCol - i);
+          const card = document.getElementById(cardId.toString());
+
+          if (card) {
+            const cardValue = card.innerText;
+            if (cardValue === player) {
+              sum += 1;
+            } else if (cardValue === "" || cardValue === null) {
+              sum += -1;
+            } else {
+              sum += 0;
+            }
+          }
+        }
+        
+        if (sum === numberOfWin) {
+          alert(player + " wins");
+          return true;
         }
       }
     }
-  
-    if (sum === numberOfCard) {
-      alert(player + " wins");
-      return true;
-    }
     return false;
   }
-  

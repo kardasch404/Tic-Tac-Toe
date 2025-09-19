@@ -1,6 +1,13 @@
-function play() {
+import { checkDraw } from "./checkDraw.js";
+import { checkWinner } from "./checkWinner.js";
+import { updateScore } from "./score.js";
+import { switchTurn } from "./switchTurn.js";
+
+export function play() {
   try {
-    const player1Symbol = document.getElementById("player1").value;
+
+    const aria = JSON.parse(localStorage.getItem("aria"));
+    const player1Symbol = aria.player1Symbol;
     const player2Symbol = player1Symbol === "X" ? "O" : "X";
     const players = [player1Symbol, player2Symbol];
     const cards = document.querySelectorAll(".card");
@@ -14,9 +21,19 @@ function play() {
                 
   
                 if (checkWinner(currentPlayer)) {
+                    const winner = currentPlayer === players[0] ? 'player1' : 'player2';
+                    updateScore(winner);
                     return; 
+                    
                 }
-                currentPlayer = currentPlayer === players[0] ? players[1] : players[0]; 
+                
+                if (checkDraw(currentPlayer)) {
+                    return;
+                }
+                
+                currentPlayer = currentPlayer === players[0] ? players[1] : players[0];
+                const playerNumber = currentPlayer === players[0] ? 1 : 2;
+                switchTurn(playerNumber);
             }
         })
     })
@@ -24,5 +41,6 @@ function play() {
     console.log("error", e);
   }
 }
-play();
+
+window.play = play;
   

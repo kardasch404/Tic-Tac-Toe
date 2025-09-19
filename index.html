@@ -8,28 +8,59 @@
     <link rel="stylesheet" href="./src/css/card.css">
     <link rel="stylesheet" href="./src/css/button.css">
     <link rel="stylesheet" href="./src/css/board.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
 
-    <title>Tic-Tac-Toe</title>
+    <title>ARIA GAME</title>
 </head>
 
 <body>
-    <div>
-        <H4>Choose number of cases</H4>
-        <input type="number" id="numberOfCard" value="3">
-        <H4>Choose your symbol</H4>
-        <select name="player1" id="player1">
-            <option value="X">X</option>
-            <option value="O">O</option>
-        </select>
-        <button onclick="createBoard(); play()">Create Card</button>
-    </div>
-    <div class="board" id="board">
+    <div class="main-container">
+        <header class="game-header">
+            <h1 class="game-title">ARIA GAME</h1>
+            <div class="title-underline"></div>
+        </header>
 
+        <div class="game-setup">
+            <div class="setup-grid">
+                <div class="input-group">
+                    <label for="numberOfCard" class="input-label">Choose number of cases</label>
+                    <input type="number" id="numberOfCard" value="3" min="3" class="hacker-input">
+                </div>
+
+                <div class="input-group">
+                    <label for="numberOfWin" class="input-label">Enter number of cases Win</label>
+                    <input type="number" id="numberOfWin" value="3" min="3" class="hacker-input">
+                </div>
+
+                <div class="input-group">
+                    <label for="player1" class="input-label">Choose your symbol</label>
+                    <div class="symbol-selector">
+                        <div class="symbol-option active" data-value="X">
+                            <span class="symbol-text">X</span>
+                        </div>
+                        <div class="symbol-option" data-value="O">
+                            <span class="symbol-text">O</span>
+                        </div>
+                    </div>
+                    <select name="player1" id="player1" class="hacker-select" style="display: none;">
+                        <option value="X">X</option>
+                        <option value="O">O</option>
+                    </select>
+                </div>
+
+                <div class="button-container">
+                    <button onclick="validateAndCreateBoard();" class="start-game-btn">
+                        <span class="btn-text">START GAME</span>
+                        <div class="btn-glow"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <script src="./src/js/board.js"></script>
-    <script src="./src/js/checkWinner.js" type="module"></script>
-    <script src="./src/js/play.js"></script>
+    <script src="./src/js/validation.js"></script>
 </body>
 
 </html>

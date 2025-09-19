@@ -1,16 +1,9 @@
-function createBoard() {
+export function createBoard(numberOfCard) {
   const board = document.querySelector(".board");
-  const numberOfCardInput = document.getElementById("numberOfCard");
-  
-  let number = numberOfCardInput.value;
-  if (!number || number < 3) {
-    alert("Please enter a number");
-    return;
-  }
 
   board.innerHTML = "";
   
-  let sumOfNumber = number * number;
+  let sumOfNumber = numberOfCard * numberOfCard;
   let id = 0 ; 
   for (let i = 0; i < sumOfNumber; i++) {
     const card = document.createElement("div");
@@ -21,8 +14,8 @@ function createBoard() {
     board.appendChild(card);
   }
 
-  board.style.gridTemplateColumns = `repeat(${number}, 1fr)`;
-  board.style.gridTemplateRows = `repeat(${number}, 1fr)`;
+  board.style.gridTemplateColumns = `repeat(${numberOfCard}, 1fr)`;
+  board.style.gridTemplateRows = `repeat(${numberOfCard}, 1fr)`;
   board.style.gap = "2px";
   board.style.width = "500px";
   board.style.height = "500px";

@@ -8,7 +8,8 @@ function checkWinner(player) {
     return checkHorizontal(player) ||
     checkVertical(player) || 
     checkMainDiagonal(player) ||
-    checkAntiDiagonal(player);
+    checkAntiDiagonal(player) ||
+    checkDraw(player);
     
 }
 

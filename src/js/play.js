@@ -1,3 +1,5 @@
+import { checkDraw } from "./checkDraw.js";
+
 function play() {
   try {
     const player1Symbol = document.getElementById("player1").value;
@@ -16,6 +18,11 @@ function play() {
                 if (checkWinner(currentPlayer)) {
                     return; 
                 }
+                
+                if (checkDraw(currentPlayer)) {
+                    return;
+                }
+                
                 currentPlayer = currentPlayer === players[0] ? players[1] : players[0]; 
             }
         })
@@ -24,5 +31,6 @@ function play() {
     console.log("error", e);
   }
 }
-play();
+
+window.play = play;
   

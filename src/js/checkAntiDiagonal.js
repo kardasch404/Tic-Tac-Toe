@@ -2,12 +2,10 @@ export function checkAntiDiagonal(player) {
     const numberOfCard = parseInt(document.getElementById("numberOfCard").value);
     const numberOfWin = parseInt(document.getElementById("numberOfWin").value);
 
-    // Check all possible anti-diagonal windows
     for (let startRow = 0; startRow <= numberOfCard - numberOfWin; startRow++) {
       for (let startCol = numberOfWin - 1; startCol < numberOfCard; startCol++) {
         let sum = 0;
-        
-        // Check window of numberOfWin consecutive anti-diagonal positions
+
         for (let i = 0; i < numberOfWin; i++) {
           const cardId = (startRow + i) * numberOfCard + (startCol - i);
           const card = document.getElementById(cardId.toString());

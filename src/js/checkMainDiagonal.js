@@ -2,12 +2,10 @@ export function checkMainDiagonal(player) {
   const numberOfCard = parseInt(document.getElementById("numberOfCard").value);
   const numberOfWin = parseInt(document.getElementById("numberOfWin").value);
 
-  // Check all possible diagonal windows
   for (let startRow = 0; startRow <= numberOfCard - numberOfWin; startRow++) {
     for (let startCol = 0; startCol <= numberOfCard - numberOfWin; startCol++) {
       let sum = 0;
       
-      // Check window of numberOfWin consecutive diagonal positions
       for (let i = 0; i < numberOfWin; i++) {
         const cardId = (startRow + i) * numberOfCard + (startCol + i);
         const card = document.getElementById(cardId.toString());

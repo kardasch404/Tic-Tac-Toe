@@ -1,3 +1,13 @@
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.symbol-option').forEach(option => {
+        option.addEventListener('click', function() {
+            document.querySelectorAll('.symbol-option').forEach(opt => opt.classList.remove('active'));
+            this.classList.add('active');
+            document.getElementById('player1').value = this.dataset.value;
+        });
+    });
+});
+
 function validateAndCreateBoard() {
     const numberOfCard = parseInt(document.getElementById("numberOfCard").value);
     const numberOfWin = parseInt(document.getElementById("numberOfWin").value);

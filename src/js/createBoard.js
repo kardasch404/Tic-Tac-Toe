@@ -1,5 +1,3 @@
-import { createXandOcard } from "./createXandOcard.js";
-
 export function createBoard(numberOfCard) {
   const board = document.querySelector(".board");
 
@@ -15,8 +13,6 @@ export function createBoard(numberOfCard) {
     id++ ;
     board.appendChild(card);
   }
-  
-  createXandOcard();
 
   board.style.gridTemplateColumns = `repeat(${numberOfCard}, 1fr)`;
   board.style.gridTemplateRows = `repeat(${numberOfCard}, 1fr)`;

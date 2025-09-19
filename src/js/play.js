@@ -1,5 +1,7 @@
 import { checkDraw } from "./checkDraw.js";
 import { checkWinner } from "./checkWinner.js";
+import { updateScore } from "./score.js";
+import { switchTurn } from "./switchTurn.js";
 
 export function play() {
   try {
@@ -19,6 +21,8 @@ export function play() {
                 
   
                 if (checkWinner(currentPlayer)) {
+                    const winner = currentPlayer === players[0] ? 'player1' : 'player2';
+                    updateScore(winner);
                     return; 
                     
                 }
@@ -27,7 +31,9 @@ export function play() {
                     return;
                 }
                 
-                currentPlayer = currentPlayer === players[0] ? players[1] : players[0]; 
+                currentPlayer = currentPlayer === players[0] ? players[1] : players[0];
+                const playerNumber = currentPlayer === players[0] ? 1 : 2;
+                switchTurn(playerNumber);
             }
         })
     })

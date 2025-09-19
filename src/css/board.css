@@ -1,8 +1,261 @@
+/* Hacker-Style Game Board */
 .board {
-    margin-left: auto;
-    margin-right: auto;
-    width: auto;
-    height: auto;
+    margin: 0 auto;
+    width: 500px !important;
+    height: 500px !important;
+    display: grid !important;
+    gap: 3px !important;
+    padding: 20px;
+    background: 
+        linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 30, 0, 0.9) 100%);
+    border: 3px solid #00ff41;
+    border-radius: 15px;
+    box-shadow: 
+        0 0 30px rgba(0, 255, 65, 0.6),
+        inset 0 0 30px rgba(0, 255, 65, 0.1),
+        0 0 60px rgba(0, 255, 65, 0.3);
+    position: relative;
+    backdrop-filter: blur(10px);
+    box-sizing: border-box;
+}
+
+.board::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, #00ff41, transparent, #00ff41, transparent, #00ff41);
+    border-radius: 15px;
+    z-index: -1;
+    animation: boardGlow 4s linear infinite;
+}
+
+@keyframes boardGlow {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+.board::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+/* Game Cards/Cells */
+.card {
+    background: 
+        linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 20, 0, 0.8) 100%);
+    border: 2px solid rgba(0, 255, 65, 0.4);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Orbitron', 'Share Tech Mono', monospace;
+    font-size: 3rem;
+    font-weight: 900;
+    color: #00ff41;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-height: 80px;
+    box-shadow: 
+        0 0 15px rgba(0, 255, 65, 0.2),
+        inset 0 0 15px rgba(0, 255, 65, 0.05);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.card:hover::before {
+    left: 100%;
+}
+
+.card:hover {
+    border-color: #00ff41;
+    background: 
+        linear-gradient(135deg, rgba(0, 10, 0, 0.95) 0%, rgba(0, 40, 0, 0.9) 100%);
+    box-shadow: 
+        0 0 25px rgba(0, 255, 65, 0.5),
+        inset 0 0 25px rgba(0, 255, 65, 0.1);
+    transform: translateY(-2px);
+}
+
+.card:active {
+    transform: translateY(0);
+    box-shadow: 
+        0 0 20px rgba(0, 255, 65, 0.4),
+        inset 0 0 20px rgba(0, 255, 65, 0.15);
+}
+
+/* X Symbol Styling */
+.card:contains("X"),
+.card[data-symbol="X"] {
+    color: #00ff41;
+    text-shadow: 
+        0 0 15px #00ff41,
+        0 0 25px #00ff41,
+        0 0 35px #00ff41;
+    animation: xGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes xGlow {
+    0% { 
+        text-shadow: 
+            0 0 15px #00ff41,
+            0 0 25px #00ff41;
+    }
+    100% { 
+        text-shadow: 
+            0 0 25px #00ff41,
+            0 0 35px #00ff41,
+            0 0 45px #00ff41;
+    }
+}
+
+/* O Symbol Styling */
+.card:contains("O"),
+.card[data-symbol="O"] {
+    color: #00ffff;
+    text-shadow: 
+        0 0 15px #00ffff,
+        0 0 25px #00ffff,
+        0 0 35px #00ffff;
+    animation: oGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes oGlow {
+    0% { 
+        text-shadow: 
+            0 0 15px #00ffff,
+            0 0 25px #00ffff;
+    }
+    100% { 
+        text-shadow: 
+            0 0 25px #00ffff,
+            0 0 35px #00ffff,
+            0 0 45px #00ffff;
+    }
+}
+
+/* Winning Line Effect */
+.card.winning {
+    background: 
+        linear-gradient(135deg, rgba(0, 255, 65, 0.3) 0%, rgba(0, 255, 65, 0.1) 100%);
+    border-color: #00ff41;
+    box-shadow: 
+        0 0 30px rgba(0, 255, 65, 0.8),
+        inset 0 0 30px rgba(0, 255, 65, 0.3);
+    animation: winningPulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes winningPulse {
+    0% { 
+        box-shadow: 
+            0 0 30px rgba(0, 255, 65, 0.8),
+            inset 0 0 30px rgba(0, 255, 65, 0.3);
+    }
+    100% { 
+        box-shadow: 
+            0 0 40px rgba(0, 255, 65, 1),
+            inset 0 0 40px rgba(0, 255, 65, 0.5);
+    }
+}
+
+/* Board Container Styling */
+.board-container {
     display: grid;
-    grid-gap: 2px;
+    gap: 2rem;
+    justify-items: center;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+}
+
+/* Game Controls */
+.game-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .board {
+        width: 350px;
+        height: 350px;
+        padding: 1rem;
+        gap: 2px;
+    }
+    
+    .card {
+        font-size: 2rem;
+        min-height: 60px;
+    }
+    
+    .board-container {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .board {
+        width: 280px;
+        height: 280px;
+        padding: 0.8rem;
+    }
+    
+    .card {
+        font-size: 1.5rem;
+        min-height: 50px;
+    }
+}
+
+/* Special Effects for Empty Cards */
+.card:empty {
+    background: 
+        linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 10, 0, 0.7) 100%);
+    border-color: rgba(0, 255, 65, 0.3);
+}
+
+.card:empty:hover {
+    background: 
+        linear-gradient(135deg, rgba(0, 20, 0, 0.9) 0%, rgba(0, 40, 0, 0.8) 100%);
+    border-color: rgba(0, 255, 65, 0.6);
+}
+
+/* Matrix-like grid lines effect */
+.board {
+    background-image: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 255, 65, 0.1) 3px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 255, 65, 0.1) 3px
+        );
+    background-size: 20px 20px;
 }

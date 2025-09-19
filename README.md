@@ -2,7 +2,7 @@
 
 Un jeu Tic-Tac-Toe moderne et configurable développé avec JavaScript, HTML et CSS natifs.
 
-**Démo en ligne**: [ARIA GAME](https://tic-tac-toe-fawn-three-98.vercel.app)
+**Démo en ligne**: [ARIA GAME](https://tic-tac-iype7ujst-kardaches-projects.vercel.app/)
 
 ## Fonctionnalités
 
